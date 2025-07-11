@@ -1,6 +1,8 @@
 # 😎 Hi 👋, I'm Aaryan Kamalwanshi
 ### 👋 About Me<br><br>- 🔭 I'm currently working on **MERN stack projects**, integrating AI models, and building scalable web apps.<br>- 🤝 I'm looking to collaborate on **open-source projects, AI integrations, and backend optimizations**.<br>- 🆘 I'm looking for help with **contributing to larger open-source communities and advanced DevOps practices**.<br>- 💬 Ask me about **Node.js, Express.js, MongoDB**<br>
 
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=aayushajs&label=Profile%20views&color=0e75b6&style=flat" alt="aayushajs" /> </p>
+
 ## 🌐 Socials:
 [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/aaryan.kamalwanshi) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/aaryankamalwanshi_12) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/in/aaryan-kamalwanshi-a49213267) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:aaryankamalwanshi274@gmail.com) 
 
