@@ -45,7 +45,7 @@
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 
 ## 🛢️ Databases / ORM :
-[MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ## ☁️ Hosting / SaaS:
 ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) 
@@ -64,7 +64,7 @@
 
 <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub Logo" width="40" height="40"/> 
 
-# GitHub Stats:
+# GitHub Stats :
 ![](https://github-readme-stats.vercel.app/api?username=Aaryank-47&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true)<br/>
 ![](https://nirzak-streak-stats.vercel.app/?user=Aaryank-47&theme=github_dark&hide_border=true)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=Aaryank-47&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true&layout=compact)
