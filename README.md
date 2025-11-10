@@ -1,7 +1,7 @@
 <!-- Typing SVG -->
-<p align="center">
+<h1 align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=700&size=28&duration=4000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Hi%2C+I'm+Aaryan+Kamalwanshi" alt="Typing SVG" />
-</p>
+</h1>
 
 
 <h3 align="center">🚀 A MERN Stack Developer | Open Source Contributor | Backend Enthusiast from India 🇮🇳</h3>
