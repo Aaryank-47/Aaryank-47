@@ -1,8 +1,14 @@
-# 😎 Hi 👋, I'm Aaryan Kamalwanshi
+<!-- Typing SVG -->
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=700&size=28&duration=4000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Hi%2C+I'm+Aaryan+Kamalwanshi" alt="Typing SVG" />
+</p>
+
 
 <h3 align="center">🚀 A MERN Stack Developer | Open Source Contributor | Backend Enthusiast from India 🇮🇳</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=aaryank-47&label=Profile%20views&color=0e75b6&style=flat" alt="aarayan_ak" /> </p>
+<p align="left">
+  <img src="https://komarev.com/ghpvc/?username=aaryank-47&label=Profile%20views&color=0e75b6&style=flat" alt="aarayan_ak" />
+</p>
 
 # 👋 About Me<br>
 ### - 🔭 I'm currently working on **MERN stack projects**, integrating AI models, and building scalable web apps.<br>- 🤝 I'm looking to collaborate on **open-source projects, AI integrations, and backend optimizations**.<br>- 🆘 I'm looking for help with **contributing to larger open-source communities and advanced DevOps practices**.<br>- 💬 Ask me about **Node.js, Express.js, MongoDB**<br>
