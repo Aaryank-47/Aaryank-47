@@ -1,0 +1,60 @@
+name: Update GitHub Profile Stats
+
+on:
+  # Run every day at 00:30 UTC (staggered to avoid peak load)
+  schedule:
+    - cron: '30 0 * * *'
+
+  # Allow manual runs from the Actions tab
+  workflow_dispatch:
+
+# Grant write access to push generated SVG files back to the repo
+permissions:
+  contents: write
+
+jobs:
+  generate-stats:
+    name: Generate & Commit SVG Cards
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetch full history so git diff works correctly
+          fetch-depth: 1
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate SVG stats cards
+        env:
+          # Priority: PROFILE_STATS_TOKEN (personal PAT) > GITHUB_TOKEN (built-in)
+          # src/config/github.ts implements this priority — do not change the order here.
+          PROFILE_STATS_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: ${{ github.actor }}
+        run: npx tsx src/index.ts
+
+      - name: Commit and push updated cards
+        run: |
+          git config --local user.name  "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add assets/
+
+          # Only commit if there are actual changes to the assets directory
+          if git diff --staged --quiet; then
+            echo "No changes to commit — stats are already up to date."
+          else
+            git commit -m "chore(stats): auto-update SVG cards [skip ci]"
+            git push
+            echo "Successfully pushed updated SVG cards."
+          fi
