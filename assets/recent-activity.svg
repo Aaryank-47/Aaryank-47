@@ -1,0 +1,87 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="480"
+  height="302"
+  viewBox="0 0 480 302"
+  role="img"
+  aria-label="Recent Activity"
+>
+  <title>Recent Activity</title>
+
+  <style>
+    * { font-family: 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif; }
+    .title  { font-size: 18px; font-weight: 700; fill: #e6edf3; }
+    .label  { font-size: 11px; fill: #8b949e; }
+    .value  { font-size: 13px; font-weight: 700; fill: #e6edf3; }
+    .muted  { fill: #6e7681; }
+    .secondary { fill: #8b949e; }
+    .animate-bar {
+      transform-box: fill-box;
+      transform-origin: left;
+      animation: barGrow 0.8s ease-out both;
+    }
+    @keyframes barGrow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+  </style>
+
+  <!-- Card background -->
+  <rect width="480" height="302" rx="12" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Header background -->
+  <rect x="1" y="1" width="478" height="53" rx="12" fill="#161b22"/>
+  <!-- Square off bottom corners of header -->
+  <rect x="1" y="44" width="478" height="9" fill="#161b22"/>
+
+  <!-- Title accent dot -->
+  <circle cx="25" cy="26" r="5" fill="#f778ba"/>
+
+  <!-- Title text -->
+  <text class="title" x="41" y="32">Recent Activity</text>
+
+  <!-- Divider -->
+  <line x1="25" y1="52" x2="455" y2="52" stroke="#30363d" stroke-width="1"/>
+
+  <g>
+    <text x="35" y="81" font-size="13" fill="#58a6ff" text-anchor="middle">⬆</text>
+    <text x="51" y="80" font-size="12" font-weight="normal" fill="#e6edf3" text-anchor="start" opacity="1">Pushed 0 commits: &quot;&quot;</text>
+    <text x="51" y="96" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="start" opacity="1">Aaryank-47/Aaryank-47</text>
+    <text x="455" y="96" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">20h ago</text>
+  </g>
+<line x1="45" y1="114" x2="455" y2="114" stroke="#30363d" stroke-width="1" opacity="0.6"/>
+<g>
+    <text x="35" y="119" font-size="13" fill="#58a6ff" text-anchor="middle">⬆</text>
+    <text x="51" y="118" font-size="12" font-weight="normal" fill="#e6edf3" text-anchor="start" opacity="1">Pushed 0 commits: &quot;&quot;</text>
+    <text x="51" y="134" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="start" opacity="1">Aaryank-47/TalentForgeAI_Backend</text>
+    <text x="455" y="134" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">1d ago</text>
+  </g>
+<line x1="45" y1="152" x2="455" y2="152" stroke="#30363d" stroke-width="1" opacity="0.6"/>
+<g>
+    <text x="35" y="157" font-size="13" fill="#39d353" text-anchor="middle">✚</text>
+    <text x="51" y="156" font-size="12" font-weight="normal" fill="#e6edf3" text-anchor="start" opacity="1">Created branch &quot;main&quot;</text>
+    <text x="51" y="172" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="start" opacity="1">Aaryank-47/TalentForgeAI_Backend</text>
+    <text x="455" y="172" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">11d ago</text>
+  </g>
+<line x1="45" y1="190" x2="455" y2="190" stroke="#30363d" stroke-width="1" opacity="0.6"/>
+<g>
+    <text x="35" y="195" font-size="13" fill="#d29922" text-anchor="middle">★</text>
+    <text x="51" y="194" font-size="12" font-weight="normal" fill="#e6edf3" text-anchor="start" opacity="1">Starred repository</text>
+    <text x="51" y="210" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="start" opacity="1">Aaryank-47/Social_platform</text>
+    <text x="455" y="210" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">13d ago</text>
+  </g>
+<line x1="45" y1="228" x2="455" y2="228" stroke="#30363d" stroke-width="1" opacity="0.6"/>
+<g>
+    <text x="35" y="233" font-size="13" fill="#58a6ff" text-anchor="middle">⬆</text>
+    <text x="51" y="232" font-size="12" font-weight="normal" fill="#e6edf3" text-anchor="start" opacity="1">Pushed 0 commits: &quot;&quot;</text>
+    <text x="51" y="248" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="start" opacity="1">Aaryank-47/TalentForgeAI_FE</text>
+    <text x="455" y="248" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">13d ago</text>
+  </g>
+<line x1="45" y1="266" x2="455" y2="266" stroke="#30363d" stroke-width="1" opacity="0.6"/>
+<g>
+    <text x="35" y="271" font-size="13" fill="#39d353" text-anchor="middle">✚</text>
+    <text x="51" y="270" font-size="12" font-weight="normal" fill="#e6edf3" text-anchor="start" opacity="1">Created branch &quot;main&quot;</text>
+    <text x="51" y="286" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="start" opacity="1">Aaryank-47/TalentForgeAI_FE</text>
+    <text x="455" y="286" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">19d ago</text>
+  </g>
+</svg>
