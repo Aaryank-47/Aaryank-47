@@ -48,7 +48,7 @@
       <text x="41" y="86" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">TypeScript</text>
       <g>
     <rect x="195" y="77" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="77" width="93.31600000000002" height="8" rx="4" fill="#3178c6" style="animation-delay:0s"/>
+    <rect class="animate-bar" x="195" y="77" width="93.357" height="8" rx="4" fill="#3178c6" style="animation-delay:0s"/>
   </g>
       <text x="408" y="86" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">45.5%</text>
     </g>
@@ -57,7 +57,7 @@
       <text x="41" y="118" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">JavaScript</text>
       <g>
     <rect x="195" y="109" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="109" width="59.67549999999999" height="8" rx="4" fill="#f1e05a" style="animation-delay:0.08s"/>
+    <rect class="animate-bar" x="195" y="109" width="59.65500000000001" height="8" rx="4" fill="#f1e05a" style="animation-delay:0.08s"/>
   </g>
       <text x="408" y="118" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">29.1%</text>
     </g>
@@ -66,7 +66,7 @@
       <text x="41" y="150" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">HTML</text>
       <g>
     <rect x="195" y="141" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="141" width="27.2445" height="8" rx="4" fill="#e34c26" style="animation-delay:0.16s"/>
+    <rect class="animate-bar" x="195" y="141" width="27.224" height="8" rx="4" fill="#e34c26" style="animation-delay:0.16s"/>
   </g>
       <text x="408" y="150" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">13.3%</text>
     </g>
