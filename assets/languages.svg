@@ -48,7 +48,7 @@
       <text x="41" y="86" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">TypeScript</text>
       <g>
     <rect x="195" y="77" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="77" width="94.8945" height="8" rx="4" fill="#3178c6" style="animation-delay:0s"/>
+    <rect class="animate-bar" x="195" y="77" width="94.99700000000001" height="8" rx="4" fill="#3178c6" style="animation-delay:0s"/>
   </g>
       <text x="408" y="86" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">46.3%</text>
     </g>
@@ -57,16 +57,16 @@
       <text x="41" y="118" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">JavaScript</text>
       <g>
     <rect x="195" y="109" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="109" width="58.834999999999994" height="8" rx="4" fill="#f1e05a" style="animation-delay:0.08s"/>
+    <rect class="animate-bar" x="195" y="109" width="58.6095" height="8" rx="4" fill="#f1e05a" style="animation-delay:0.08s"/>
   </g>
-      <text x="408" y="118" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">28.7%</text>
+      <text x="408" y="118" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">28.6%</text>
     </g>
 <g>
       <circle cx="31" cy="146" r="5" fill="#e34c26"/>
       <text x="41" y="150" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">HTML</text>
       <g>
     <rect x="195" y="141" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="141" width="26.855" height="8" rx="4" fill="#e34c26" style="animation-delay:0.16s"/>
+    <rect class="animate-bar" x="195" y="141" width="26.7525" height="8" rx="4" fill="#e34c26" style="animation-delay:0.16s"/>
   </g>
       <text x="408" y="150" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">13.1%</text>
     </g>
@@ -75,7 +75,7 @@
       <text x="41" y="182" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">Python</text>
       <g>
     <rect x="195" y="173" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="173" width="11.439" height="8" rx="4" fill="#3572A5" style="animation-delay:0.24s"/>
+    <rect class="animate-bar" x="195" y="173" width="11.398" height="8" rx="4" fill="#3572A5" style="animation-delay:0.24s"/>
   </g>
       <text x="408" y="182" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">5.6%</text>
     </g>
@@ -84,7 +84,7 @@
       <text x="41" y="214" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">CSS</text>
       <g>
     <rect x="195" y="205" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="205" width="10.414" height="8" rx="4" fill="#663399" style="animation-delay:0.32s"/>
+    <rect class="animate-bar" x="195" y="205" width="10.373" height="8" rx="4" fill="#663399" style="animation-delay:0.32s"/>
   </g>
       <text x="408" y="214" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">5.1%</text>
     </g>
@@ -107,30 +107,30 @@
       <text x="408" y="278" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">0.4%</text>
     </g>
 <g>
-      <circle cx="31" cy="306" r="5" fill="#555555"/>
-      <text x="41" y="310" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">C</text>
+      <circle cx="31" cy="306" r="5" fill="#336790"/>
+      <text x="41" y="310" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">PLpgSQL</text>
       <g>
     <rect x="195" y="301" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="301" width="0.164" height="8" rx="4" fill="#555555" style="animation-delay:0.56s"/>
+    <rect class="animate-bar" x="195" y="301" width="0.28700000000000003" height="8" rx="4" fill="#336790" style="animation-delay:0.56s"/>
   </g>
       <text x="408" y="310" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">0.1%</text>
     </g>
 <g>
-      <circle cx="31" cy="338" r="5" fill="#c6538c"/>
-      <text x="41" y="342" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">SCSS</text>
+      <circle cx="31" cy="338" r="5" fill="#555555"/>
+      <text x="41" y="342" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">C</text>
       <g>
     <rect x="195" y="333" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="333" width="0.10250000000000001" height="8" rx="4" fill="#c6538c" style="animation-delay:0.64s"/>
+    <rect class="animate-bar" x="195" y="333" width="0.164" height="8" rx="4" fill="#555555" style="animation-delay:0.64s"/>
   </g>
       <text x="408" y="342" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">0.1%</text>
     </g>
 <g>
-      <circle cx="31" cy="370" r="5" fill="#F05138"/>
-      <text x="41" y="374" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">Swift</text>
+      <circle cx="31" cy="370" r="5" fill="#c6538c"/>
+      <text x="41" y="374" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">SCSS</text>
       <g>
     <rect x="195" y="365" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="365" width="0.082" height="8" rx="4" fill="#F05138" style="animation-delay:0.72s"/>
+    <rect class="animate-bar" x="195" y="365" width="0.10250000000000001" height="8" rx="4" fill="#c6538c" style="animation-delay:0.72s"/>
   </g>
-      <text x="408" y="374" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">0.0%</text>
+      <text x="408" y="374" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">0.1%</text>
     </g>
 </svg>
