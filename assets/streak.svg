@@ -45,19 +45,19 @@
 
   <g>
       <text x="96.66666666666667" y="82" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="middle" opacity="1">Current Streak</text>
-      <text x="96.66666666666667" y="120" font-size="32" font-weight="700" fill="#d29922" text-anchor="middle" opacity="1">18</text>
-      <text x="96.66666666666667" y="140" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="middle" opacity="1">18 days</text>
-      <text x="96.66666666666667" y="158" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="middle" opacity="1">Jul 11, 2026 - Jul 28, 2026</text>
+      <text x="96.66666666666667" y="120" font-size="32" font-weight="700" fill="#d29922" text-anchor="middle" opacity="1">20</text>
+      <text x="96.66666666666667" y="140" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="middle" opacity="1">20 days</text>
+      <text x="96.66666666666667" y="158" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="middle" opacity="1">Jul 11, 2026 - Jul 30, 2026</text>
     </g>
 <g>
       <text x="240" y="82" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="middle" opacity="1">Longest Streak</text>
-      <text x="240" y="120" font-size="32" font-weight="700" fill="#79c0ff" text-anchor="middle" opacity="1">18</text>
-      <text x="240" y="140" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="middle" opacity="1">18 days</text>
+      <text x="240" y="120" font-size="32" font-weight="700" fill="#79c0ff" text-anchor="middle" opacity="1">20</text>
+      <text x="240" y="140" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="middle" opacity="1">20 days</text>
       <text x="240" y="158" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="middle" opacity="1">—</text>
     </g>
 <g>
     <text x="383.33333333333337" y="82" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="middle" opacity="1">Today</text>
-    <text x="383.33333333333337" y="120" font-size="32" font-weight="700" fill="#3fb950" text-anchor="middle" opacity="1">0</text>
+    <text x="383.33333333333337" y="120" font-size="32" font-weight="700" fill="#3fb950" text-anchor="middle" opacity="1">1</text>
     <text x="383.33333333333337" y="140" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="middle" opacity="1">contributions</text>
   </g>
 <line x1="168.33333333333334" y1="62" x2="168.33333333333334" y2="176" stroke="#30363d" stroke-width="1" opacity="0.6"/>
