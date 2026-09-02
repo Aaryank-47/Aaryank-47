@@ -48,7 +48,7 @@
       <text x="41" y="86" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">TypeScript</text>
       <g>
     <rect x="195" y="77" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="77" width="116.87049999999999" height="8" rx="4" fill="#3178c6" style="animation-delay:0s"/>
+    <rect class="animate-bar" x="195" y="77" width="116.768" height="8" rx="4" fill="#3178c6" style="animation-delay:0s"/>
   </g>
       <text x="408" y="86" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">57.0%</text>
     </g>
@@ -57,7 +57,7 @@
       <text x="41" y="118" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">JavaScript</text>
       <g>
     <rect x="195" y="109" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="109" width="41.1025" height="8" rx="4" fill="#f1e05a" style="animation-delay:0.08s"/>
+    <rect class="animate-bar" x="195" y="109" width="41.143499999999996" height="8" rx="4" fill="#f1e05a" style="animation-delay:0.08s"/>
   </g>
       <text x="408" y="118" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">20.1%</text>
     </g>
@@ -66,9 +66,9 @@
       <text x="41" y="150" font-size="11" font-weight="600" fill="#e6edf3" text-anchor="start" opacity="1">HTML</text>
       <g>
     <rect x="195" y="141" width="205" height="8" rx="4" fill="#21262d"/>
-    <rect class="animate-bar" x="195" y="141" width="29.6225" height="8" rx="4" fill="#e34c26" style="animation-delay:0.16s"/>
+    <rect class="animate-bar" x="195" y="141" width="29.643" height="8" rx="4" fill="#e34c26" style="animation-delay:0.16s"/>
   </g>
-      <text x="408" y="150" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">14.4%</text>
+      <text x="408" y="150" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">14.5%</text>
     </g>
 <g>
       <circle cx="31" cy="178" r="5" fill="#3572A5"/>
