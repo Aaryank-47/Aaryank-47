@@ -71,19 +71,25 @@
 
 <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub Logo" width="40" height="40"/> 
 
-# GitHub Stats :
-![](https://github-readme-stats.vercel.app/api?username=Aaryank-47&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=Aaryank-47&theme=github_dark&hide_border=true)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Aaryank-47&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true&layout=compact)
+# 📊 GitHub Stats
 
-## 🏆 GitHub Trophies
-![](https://github-profile-trophy.vercel.app/?username=Aaryank-47&theme=radical&no-frame=true&no-bg=false&margin-w=4)
+<p align="left">
+  <img src="./assets/github-overview.svg" alt="GitHub Overview" width="480" />
+  <br/>
+  <img src="./assets/streak.svg" alt="GitHub Streak" width="480" />
+  <br/>
+  <img src="./assets/languages.svg" alt="Languages Breakdown" width="480" />
+  <br/>
+  <img src="./assets/contributions.svg" alt="Contributions History" width="480" />
+  <br/>
+  <img src="./assets/trophies.svg" alt="GitHub Trophies" width="480" />
+  <br/>
+  <img src="./assets/top-contributed-repo.svg" alt="Top Contributed Repository" width="480" />
+  <br/>
+  <img src="./assets/top-repositories.svg" alt="Top Repositories" width="480" />
+  <br/>
+  <img src="./assets/recent-activity.svg" alt="Recent Activity" width="480" />
+</p>
 
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=Aaryank-47&limit=5&theme=github_dark&combine_all_yearly_contributions=true&hide_border=true)
-
-
-[![](https://visitcount.itsvg.in/api?id=Aaryank-47&icon=0&color=0)](https://visitcount.itsvg.in)
-
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<!-- Proudly created with GitHub Profile Stats Generator -->
 ---

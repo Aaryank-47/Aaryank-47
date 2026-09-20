@@ -51,6 +51,8 @@ export const CARD_ACCENTS = {
   streak: COLORS.orange,
   topRepositories: COLORS.blue,
   recentActivity: COLORS.pink,
+  trophies: COLORS.orangeLight,
+  topContributedRepo: COLORS.cyan,
   lastUpdated: COLORS.textMuted,
 } as const;
 
@@ -136,5 +138,7 @@ export const OUTPUT_FILES = {
   streak: 'streak.svg',
   topRepositories: 'top-repositories.svg',
   recentActivity: 'recent-activity.svg',
+  trophies: 'trophies.svg',
+  topContributedRepo: 'top-contributed-repo.svg',
   lastUpdated: 'last-updated.svg',
 } as const;

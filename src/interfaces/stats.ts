@@ -66,12 +66,44 @@ export interface RecentActivityStats {
   activities: ActivityItem[];
 }
 
+export type TrophyRank = 'C' | 'B' | 'A' | 'S' | 'SS' | 'SSS';
+
+export interface TrophyItem {
+  id: string;
+  title: string;
+  rank: TrophyRank;
+  rankLabel: string;
+  color: string;
+  value: number;
+  valueFormatted: string;
+}
+
+export interface TrophyStats {
+  trophies: TrophyItem[];
+}
+
+export interface TopContributedRepoStats {
+  name: string;
+  owner: string;
+  fullTitle: string;
+  description: string | null;
+  contributionCount: number;
+  language: string | null;
+  languageColor: string | null;
+  stars: number;
+  forks: number;
+  updatedAt: string;
+  url: string;
+}
+
 export interface AllStats {
   repository: RepositoryStats;
   language: LanguageStats;
   contribution: ContributionStats;
   streak: StreakStats;
   activity: RecentActivityStats;
+  trophy: TrophyStats;
+  topContributedRepo: TopContributedRepoStats | null;
   username: string;
   generatedAt: string;
 }

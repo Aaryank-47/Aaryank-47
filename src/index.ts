@@ -16,12 +16,16 @@ import { fetchRepositoryStats } from './services/repository.js';
 import { computeLanguageStats } from './services/language.js';
 import { fetchContributionStats } from './services/contribution.js';
 import { fetchRecentActivity } from './services/activity.js';
+import { computeTrophyStats } from './services/trophy.js';
+import { fetchTopContributedRepo } from './services/topContributedRepo.js';
 import { renderOverview } from './renderers/overview.js';
 import { renderLanguages } from './renderers/languages.js';
 import { renderContributions } from './renderers/contributions.js';
 import { renderStreak } from './renderers/streak.js';
 import { renderTopRepositories } from './renderers/topRepositories.js';
 import { renderRecentActivity } from './renderers/recentActivity.js';
+import { renderTrophies } from './renderers/trophies.js';
+import { renderTopContributedRepo } from './renderers/topContributedRepo.js';
 import { renderLastUpdated } from './renderers/lastUpdated.js';
 import { writeOutput, ensureDir } from './utils/file.js';
 import { OUTPUT_FILES } from './constants/index.js';
@@ -43,8 +47,8 @@ async function main(): Promise<void> {
   // ── Data Fetching ──────────────────────────────────────────────────────────
   console.log('📡 Fetching data from GitHub API...');
 
-  // Repository + contributions can run in parallel (independent queries)
-  const [repoResult, contributionResult, activityResult] = await Promise.all([
+  // Repository + contributions + activity + top contributed repo run in parallel
+  const [repoResult, contributionResult, activityResult, topContributedRepo] = await Promise.all([
     fetchRepositoryStats(graphql, config.username).then((r) => {
       console.log(`  ✓ Fetched ${r.stats.totalRepos} repositories`);
       return r;
@@ -57,6 +61,14 @@ async function main(): Promise<void> {
       console.log(`  ✓ Fetched ${r.activities.length} recent activities`);
       return r;
     }),
+    fetchTopContributedRepo(graphql, config.username).then((r) => {
+      if (r) {
+        console.log(`  ✓ Fetched top contributed repo: ${r.fullTitle} (${r.contributionCount} contribs)`);
+      } else {
+        console.log(`  ✓ Fetched top contributed repo: none found`);
+      }
+      return r;
+    }),
   ]);
 
   const repositoryStats = repoResult.stats;
@@ -64,18 +76,22 @@ async function main(): Promise<void> {
   console.log(`  ✓ Computed language breakdown (${languageStats.languages.length} languages)`);
 
   const { contribution: contributionStats, streak: streakStats } = contributionResult;
+  const trophyStats = computeTrophyStats(repositoryStats, contributionStats, streakStats);
+  console.log(`  ✓ Computed trophy achievements (${trophyStats.trophies.length} trophies)`);
 
   // ── SVG Rendering ──────────────────────────────────────────────────────────
   console.log('\n🎨 Rendering SVG cards...');
 
   const svgCards: Array<{ file: string; svg: string }> = [
-    { file: OUTPUT_FILES.overview,       svg: renderOverview(repositoryStats) },
-    { file: OUTPUT_FILES.languages,      svg: renderLanguages(languageStats) },
-    { file: OUTPUT_FILES.contributions,  svg: renderContributions(contributionStats) },
-    { file: OUTPUT_FILES.streak,         svg: renderStreak(streakStats) },
-    { file: OUTPUT_FILES.topRepositories, svg: renderTopRepositories(repositoryStats) },
-    { file: OUTPUT_FILES.recentActivity, svg: renderRecentActivity(activityResult) },
-    { file: OUTPUT_FILES.lastUpdated,    svg: renderLastUpdated(generatedAt) },
+    { file: OUTPUT_FILES.overview,            svg: renderOverview(repositoryStats) },
+    { file: OUTPUT_FILES.languages,           svg: renderLanguages(languageStats) },
+    { file: OUTPUT_FILES.contributions,       svg: renderContributions(contributionStats) },
+    { file: OUTPUT_FILES.streak,              svg: renderStreak(streakStats) },
+    { file: OUTPUT_FILES.topRepositories,     svg: renderTopRepositories(repositoryStats) },
+    { file: OUTPUT_FILES.recentActivity,      svg: renderRecentActivity(activityResult) },
+    { file: OUTPUT_FILES.trophies,            svg: renderTrophies(trophyStats) },
+    { file: OUTPUT_FILES.topContributedRepo,  svg: renderTopContributedRepo(topContributedRepo) },
+    { file: OUTPUT_FILES.lastUpdated,         svg: renderLastUpdated(generatedAt) },
   ];
 
   // ── File Writing ───────────────────────────────────────────────────────────
