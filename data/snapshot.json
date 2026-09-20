@@ -1,0 +1,20 @@
+{
+  "lastScanAt": "2026-09-20T08:56:15.524Z",
+  "username": "Aaryank-47",
+  "kpis": {
+    "totalRepos": 10,
+    "totalStars": 25,
+    "totalForks": 5,
+    "totalContributions": 500,
+    "currentStreak": 5
+  },
+  "repositoryFingerprints": {},
+  "technologies": {
+    "TypeScript": {
+      "name": "TypeScript",
+      "category": "Languages",
+      "repoCount": 5,
+      "lastDetected": "2026-09-20T08:56:15.524Z"
+    }
+  }
+}

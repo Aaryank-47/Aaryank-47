@@ -1,95 +1,108 @@
-<!-- Typing SVG -->
-<h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=700&size=28&duration=4000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Hi%2C+I'm+Aaryan+Kamalwanshi" alt="Typing SVG" />
-</h1>
-
-
-<h3 align="center">🚀 A FullStack Developer | Open Source Contributor | Backend Enthusiast from India 🇮🇳</h3>
-
-<p align="left">
-  <img src="https://komarev.com/ghpvc/?username=aaryank-47&label=Profile%20views&color=0e75b6&style=flat" alt="aarayan_ak" />
+<h1 align="center">Aaryan Kamalwanshi</h1>
+<p align="center">
+  <b>Full Stack Developer &nbsp;|&nbsp; Open Source Contributor &nbsp;|&nbsp; Backend Enthusiast</b>
 </p>
 
-# 👋 About Me<br>
-### - 🔭 I'm currently working on **Fullstack projects**, integrating AI models, and building scalable web apps.<br>- 🤝 I'm looking to collaborate on **open-source projects, AI integrations, and backend optimizations**.<br>- 🆘 I'm looking for help with **contributing to larger open-source communities and advanced DevOps practices**.<br>- 💬 Ask me about **Node.js, Express.js, MongoDB**<br>
+<p align="center">
+  <a href="https://linkedin.com/in/aaryan-kamalwanshi-a49213267"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="mailto:aaryankamalwanshi274@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white" alt="Email" /></a>
+  <a href="https://github.com/Aaryank-47"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub" /></a>
+</p>
 
+---
 
-## 🌐 Socials:
-[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/aaryan.kamalwanshi) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/aaryankamalwanshi_12) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/in/aaryan-kamalwanshi-a49213267) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:aaryankamalwanshi274@gmail.com) 
+### About Me
 
+Computer Science & Engineering student with a focus on full-stack web applications, scalable backend systems, and AI model integrations. Experienced in building production-ready Node.js/TypeScript architectures, database optimizations, and open-source contributions.
 
+- **Primary Focus:** Distributed Systems, Scalable Web Applications, AI Integrations
+- **Core Stack:** TypeScript, Node.js, Express.js, React, Python, PostgreSQL, MongoDB, Redis, Docker
+- **Current Pursuits:** Advanced DevOps Practices, Microservice Architectures, System Design
 
-# 💻 Tech Stack:
-## 🧠 Programming Languages :
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) 
-![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) 
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+---
 
-## ⚙️ Frameworks :
-![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) 
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) 
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
-![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
-![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)
+### Technical Stack
 
-## 🧩 Platforms & Libraries :
-![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white) 
-![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens) 
-![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD) 
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) 
-![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) 
-![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white) 
-![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) 
-![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) 
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) 
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black) 
-![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) 
-![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+#### Languages
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![C](https://img.shields.io/badge/C-A8B9CC?style=flat&logo=c&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=flat&logo=c%2B%2B&logoColor=white)
 
-## 🛢️ Databases / ORM :
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+#### Frontend Development
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white)
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=flat&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 
-## ☁️ Hosting / SaaS:
-![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) 
-![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) 
-![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white) 
-![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
+#### Backend Development & Services
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=flat&logo=django&logoColor=white)
+![REST API](https://img.shields.io/badge/REST_API-02569B?style=flat&logo=graphql&logoColor=white)
 
-## 🎨 Design :
-![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) 
-![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+#### Databases & Storage
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
 
-## 🛠️ Tools :
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) 
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+#### Infrastructure & DevOps
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Render-46E3B7?style=flat&logo=render&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=flat&logo=netlify&logoColor=white)
 
-<img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub Logo" width="40" height="40"/> 
+#### Developer Tools
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat&logo=postman&logoColor=white)
 
-# 📊 GitHub Stats
+---
+
+### GitHub Statistics
 
 <p align="left">
   <img src="./assets/github-overview.svg" alt="GitHub Overview" width="480" />
   <br/>
   <img src="./assets/streak.svg" alt="GitHub Streak" width="480" />
-  <br/>
+</p>
+
+---
+
+### Contribution Activity & Languages
+
+<p align="left">
   <img src="./assets/languages.svg" alt="Languages Breakdown" width="480" />
   <br/>
   <img src="./assets/contributions.svg" alt="Contributions History" width="480" />
-  <br/>
-  <img src="./assets/trophies.svg" alt="GitHub Trophies" width="480" />
-  <br/>
-  <img src="./assets/top-contributed-repo.svg" alt="Top Contributed Repository" width="480" />
-  <br/>
-  <img src="./assets/top-repositories.svg" alt="Top Repositories" width="480" />
-  <br/>
-  <img src="./assets/recent-activity.svg" alt="Recent Activity" width="480" />
 </p>
 
-<!-- Proudly created with GitHub Profile Stats Generator -->
 ---
+
+### Top Repositories & Highlights
+
+<p align="left">
+  <img src="./assets/top-repositories.svg" alt="Top Repositories" width="480" />
+  <br/>
+  <img src="./assets/top-contributed-repo.svg" alt="Top Contributed Repository" width="480" />
+</p>
+
+---
+
+### Recent Activity & Achievements
+
+<p align="left">
+  <img src="./assets/recent-activity.svg" alt="Recent Activity" width="480" />
+  <br/>
+  <img src="./assets/trophies.svg" alt="GitHub Trophies" width="480" />
+</p>
+
+---
+
+<p align="center">
+  <sub><i>Profile statistics updated automatically via GitHub Actions.</i></sub>
+</p>

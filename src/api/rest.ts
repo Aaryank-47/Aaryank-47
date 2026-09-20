@@ -97,4 +97,22 @@ export class GitHubRestClient {
       100
     );
   }
+
+  async getRepoFileContent(owner: string, repo: string, path: string): Promise<string | null> {
+    try {
+      const data = await this.get<{ content?: string; encoding?: string }>(
+        `/repos/${owner}/${repo}/contents/${path}`
+      );
+      if (data && data.content && data.encoding === 'base64') {
+        return Buffer.from(data.content.replace(/\s/g, ''), 'base64').toString('utf-8');
+      }
+      return null;
+    } catch (err) {
+      if (err instanceof GitHubApiError && err.statusCode === 404) {
+        return null;
+      }
+      // Silently return null for inaccessible files to keep scanner resilient
+      return null;
+    }
+  }
 }
