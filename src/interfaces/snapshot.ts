@@ -1,3 +1,8 @@
+export interface KPIMeta {
+  value: number;
+  source: string;
+}
+
 export interface RepositoryFingerprint {
   id: number;
   name: string;
@@ -19,12 +24,21 @@ export interface KPISnapshot {
   totalForks: number;
   totalContributions: number;
   currentStreak: number;
+  longestStreak: number;
 }
 
 export interface ProfileSnapshot {
-  lastScanAt: string;
+  schemaVersion: number;
+  generatedAt: string;
   username: string;
-  kpis: KPISnapshot;
+  kpis: {
+    totalRepos: KPIMeta;
+    totalStars: KPIMeta;
+    totalForks: KPIMeta;
+    totalContributions: KPIMeta;
+    currentStreak: KPIMeta;
+    longestStreak: KPIMeta;
+  };
   repositoryFingerprints: Record<string, RepositoryFingerprint>;
   technologies: Record<string, TechnologySnapshot>;
 }

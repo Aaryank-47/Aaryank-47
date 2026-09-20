@@ -1,5 +1,6 @@
 import type { GitHubGraphQLClient } from '../api/graphql.js';
 import type { TopContributedRepoStats } from '../interfaces/stats.js';
+import { createValidatedKPI } from './kpi.js';
 
 const TOP_CONTRIBUTED_QUERY = /* GraphQL */ `
   query GetTopContributedRepo($username: String!, $from: DateTime!, $to: DateTime!) {
@@ -99,7 +100,8 @@ interface TopContributedQueryResult {
 
 export async function fetchTopContributedRepo(
   graphql: GitHubGraphQLClient,
-  username: string
+  username: string,
+  options: { excludeSelfRepo?: boolean } = { excludeSelfRepo: false }
 ): Promise<TopContributedRepoStats | null> {
   const currentYear = new Date().getFullYear();
   const yearsToQuery = [currentYear, currentYear - 1, currentYear - 2];
@@ -158,19 +160,33 @@ export async function fetchTopContributedRepo(
     }
   }
 
+  // Filter out self-profile repo if configured & alternative repos exist
+  const profileSelfKey = `${username}/${username}`.toLowerCase();
+  let entries = Array.from(repoAggregates.values());
+
+  if (options.excludeSelfRepo && entries.length > 1) {
+    const nonSelfEntries = entries.filter(
+      (e) => `${e.node.owner.login}/${e.node.name}`.toLowerCase() !== profileSelfKey
+    );
+    if (nonSelfEntries.length > 0) {
+      entries = nonSelfEntries;
+    }
+  }
+
   let topEntry: { node: GraphQLRepoNode; count: number } | null = null;
-  for (const entry of repoAggregates.values()) {
+  for (const entry of entries) {
     if (!topEntry || entry.count > topEntry.count) {
       topEntry = entry;
     }
   }
 
   if (!topEntry || topEntry.count === 0) {
+    createValidatedKPI('topContributedRepo', null, 'GitHub GraphQL contributionsCollection', () => true);
     return null;
   }
 
   const { node, count } = topEntry;
-  return {
+  const resultStats: TopContributedRepoStats = {
     name: node.name,
     owner: node.owner.login,
     fullTitle: `${node.owner.login}/${node.name}`,
@@ -183,4 +199,8 @@ export async function fetchTopContributedRepo(
     updatedAt: node.updatedAt,
     url: node.url,
   };
+
+  createValidatedKPI('topContributedRepo', resultStats.fullTitle, 'GitHub GraphQL contributionsCollection', (v) => typeof v === 'string' && v.length > 0);
+
+  return resultStats;
 }

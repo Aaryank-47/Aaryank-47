@@ -4,6 +4,7 @@ import type { ProfileSnapshot, KPISnapshot, RepositoryFingerprint, TechnologySna
 import type { TechStackBreakdown } from '../interfaces/technology.js';
 
 const SNAPSHOT_FILE_PATH = path.join(process.cwd(), 'data', 'snapshot.json');
+const LATEST_DATA_PATH = path.join(process.cwd(), 'data', 'latest-profile-data.json');
 
 export interface TrendDeltas {
   repoDelta: number;
@@ -17,7 +18,8 @@ export interface TrendDeltas {
 export async function loadProfileSnapshot(): Promise<ProfileSnapshot | null> {
   try {
     const data = await fs.readFile(SNAPSHOT_FILE_PATH, 'utf-8');
-    return JSON.parse(data) as ProfileSnapshot;
+    const json = JSON.parse(data) as ProfileSnapshot;
+    return json;
   } catch {
     return null;
   }
@@ -47,15 +49,36 @@ export async function saveProfileSnapshot(
     }
 
     const snapshot: ProfileSnapshot = {
-      lastScanAt: new Date().toISOString(),
+      schemaVersion: 2,
+      generatedAt: new Date().toISOString(),
       username,
-      kpis,
+      kpis: {
+        totalRepos: { value: kpis.totalRepos, source: 'GitHub GraphQL / REST API' },
+        totalStars: { value: kpis.totalStars, source: 'GitHub GraphQL API' },
+        totalForks: { value: kpis.totalForks, source: 'GitHub GraphQL API' },
+        totalContributions: { value: kpis.totalContributions, source: 'GitHub GraphQL contributionsCollection' },
+        currentStreak: { value: kpis.currentStreak, source: 'GitHub GraphQL contributionCalendar' },
+        longestStreak: { value: kpis.longestStreak, source: 'GitHub GraphQL contributionCalendar' },
+      },
       repositoryFingerprints: fingerprints,
       technologies: techSnapshotMap,
     };
 
     await fs.writeFile(SNAPSHOT_FILE_PATH, JSON.stringify(snapshot, null, 2), 'utf-8');
-    console.log(`  ✓ Updated persistent snapshot: data/snapshot.json`);
+    console.log(`  ✓ Updated persistent snapshot (Schema v2): data/snapshot.json`);
+
+    // Optional trace data export for debugging/auditability
+    if (process.env['DEBUG_GITHUB_DATA'] === 'true' || process.env['NODE_ENV'] === 'development') {
+      const traceData = {
+        generatedAt: snapshot.generatedAt,
+        username,
+        kpiLineage: snapshot.kpis,
+        totalPublicReposScanned: Object.keys(fingerprints).length,
+        detectedTechnologiesCount: Object.keys(techSnapshotMap).length,
+      };
+      await fs.writeFile(LATEST_DATA_PATH, JSON.stringify(traceData, null, 2), 'utf-8');
+      console.log(`  ✓ Exported trace data: data/latest-profile-data.json`);
+    }
   } catch (err) {
     console.warn(`  [Snapshot] Warning: Failed to save snapshot:`, err);
   }
@@ -66,7 +89,7 @@ export function computeTrends(
   currentKpis: KPISnapshot,
   currentTech: TechStackBreakdown
 ): TrendDeltas {
-  if (!previousSnapshot) {
+  if (!previousSnapshot || !previousSnapshot.kpis) {
     return {
       repoDelta: 0,
       starDelta: 0,
@@ -95,11 +118,11 @@ export function computeTrends(
   }
 
   return {
-    repoDelta: currentKpis.totalRepos - (prev.totalRepos || 0),
-    starDelta: currentKpis.totalStars - (prev.totalStars || 0),
-    forkDelta: currentKpis.totalForks - (prev.totalForks || 0),
-    contributionDelta: currentKpis.totalContributions - (prev.totalContributions || 0),
-    streakDelta: currentKpis.currentStreak - (prev.currentStreak || 0),
+    repoDelta: currentKpis.totalRepos - (prev.totalRepos?.value ?? 0),
+    starDelta: currentKpis.totalStars - (prev.totalStars?.value ?? 0),
+    forkDelta: currentKpis.totalForks - (prev.totalForks?.value ?? 0),
+    contributionDelta: currentKpis.totalContributions - (prev.totalContributions?.value ?? 0),
+    streakDelta: currentKpis.currentStreak - (prev.currentStreak?.value ?? 0),
     newTechnologies: newTechList,
   };
 }

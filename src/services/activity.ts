@@ -3,10 +3,13 @@ import type { GitHubEvent } from '../interfaces/github.js';
 import type { ActivityItem, RecentActivityStats } from '../interfaces/stats.js';
 import { EVENT_LABELS } from '../constants/index.js';
 import { truncate, formatRelativeTime } from '../utils/format.js';
+import { createValidatedKPI, validateString } from './kpi.js';
 
 // ─── Event parsers ────────────────────────────────────────────────────────────
 
 function parseEvent(event: GitHubEvent): ActivityItem | null {
+  if (!event || !event.repo || !event.repo.name) return null;
+
   const repo = event.repo.name;
   const repoUrl = `https://github.com/${repo}`;
   const date = formatRelativeTime(event.created_at);
@@ -16,12 +19,25 @@ function parseEvent(event: GitHubEvent): ActivityItem | null {
     case 'PushEvent': {
       const commits = event.payload.commits ?? [];
       const count = commits.length;
+
+      if (count === 0) {
+        return {
+          type: 'push',
+          description: `Pushed updates to repository`,
+          repo,
+          repoUrl,
+          date,
+          url: repoUrl,
+        };
+      }
+
       const first = commits[0];
-      const msgLine = first?.message.split('\n')[0] ?? '';
-      const msg = truncate(msgLine, 55);
-      const commitUrl = first
+      const msgLine = first?.message?.split('\n')[0] ?? '';
+      const msg = msgLine.trim() !== '' ? truncate(msgLine, 55) : 'Commit updates';
+      const commitUrl = first?.sha
         ? `https://github.com/${repo}/commit/${first.sha}`
         : repoUrl;
+
       return {
         type: 'push',
         description: `Pushed ${count} commit${count !== 1 ? 's' : ''}: "${msg}"`,
@@ -43,7 +59,7 @@ function parseEvent(event: GitHubEvent): ActivityItem | null {
 
     case 'PullRequestEvent': {
       const pr = event.payload.pull_request;
-      if (!pr) return null;
+      if (!pr || !pr.title) return null;
       const action = event.payload.action ?? 'updated';
       const title = truncate(pr.title, 50);
       return {
@@ -52,13 +68,13 @@ function parseEvent(event: GitHubEvent): ActivityItem | null {
         repo,
         repoUrl,
         date,
-        url: pr.html_url,
+        url: pr.html_url || repoUrl,
       };
     }
 
     case 'IssuesEvent': {
       const issue = event.payload.issue;
-      if (!issue) return null;
+      if (!issue || !issue.title) return null;
       const action = event.payload.action ?? 'updated';
       const title = truncate(issue.title, 50);
       return {
@@ -67,7 +83,7 @@ function parseEvent(event: GitHubEvent): ActivityItem | null {
         repo,
         repoUrl,
         date,
-        url: issue.html_url,
+        url: issue.html_url || repoUrl,
       };
     }
 
@@ -80,14 +96,14 @@ function parseEvent(event: GitHubEvent): ActivityItem | null {
     case 'ReleaseEvent': {
       const release = event.payload.release;
       if (!release) return null;
-      const relName = release.name ?? release.tag_name;
+      const relName = release.name ?? release.tag_name ?? 'release';
       return {
         type: 'release',
         description: `Released ${truncate(relName, 45)}`,
         repo,
         repoUrl,
         date,
-        url: release.html_url,
+        url: release.html_url || repoUrl,
       };
     }
 
@@ -111,7 +127,7 @@ function parseEvent(event: GitHubEvent): ActivityItem | null {
         repo,
         repoUrl,
         date,
-        url: null,
+        url: repoUrl,
       };
   }
 }
@@ -125,13 +141,13 @@ export async function fetchRecentActivity(
   const events = await rest.getUserEvents(username);
 
   const activities: ActivityItem[] = [];
-  const seenRepoPush = new Set<string>(); // deduplicate consecutive pushes to same repo
+  const seenRepoPush = new Set<string>();
 
   for (const event of events) {
     if (activities.length >= 8) break;
 
     const item = parseEvent(event);
-    if (!item) continue;
+    if (!item || !validateString(item.description)) continue;
 
     // Skip duplicate push events to the same repo
     if (item.type === 'push') {
@@ -141,6 +157,8 @@ export async function fetchRecentActivity(
 
     activities.push(item);
   }
+
+  createValidatedKPI('recentActivitiesCount', activities.length, 'GitHub REST events API', (n) => n >= 0);
 
   return { activities };
 }

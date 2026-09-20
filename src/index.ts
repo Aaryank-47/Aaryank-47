@@ -3,9 +3,9 @@
  *
  * Flow:
  *   1. Load config (env validation happens here; fails fast on bad config)
- *   2. Instantiate API clients & load persistent snapshot
+ *   2. Instantiate API clients & load persistent snapshot (Schema v2)
  *   3. Discover all accessible repositories & detect technology stack (incremental)
- *   4. Fetch statistics, contribution history, and activity
+ *   4. Fetch statistics, contribution history, and activity with KPI validation
  *   5. Compute trends & save updated snapshot to data/snapshot.json
  *   6. Render all SVG cards in parallel
  *   7. Write all SVG files to assets/
@@ -23,6 +23,7 @@ import { fetchTopContributedRepo } from './services/topContributedRepo.js';
 import { discoverAllRepositories } from './services/repositoryScanner.js';
 import { detectRepositoryTechnologies } from './services/technologyDetector.js';
 import { loadProfileSnapshot, saveProfileSnapshot, computeTrends } from './services/profileSnapshot.js';
+import { createValidatedKPI, validateNumber } from './services/kpi.js';
 import { renderOverview } from './renderers/overview.js';
 import { renderLanguages } from './renderers/languages.js';
 import { renderContributions } from './renderers/contributions.js';
@@ -74,7 +75,7 @@ async function main(): Promise<void> {
         console.log(`  ✓ Fetched ${r.activities.length} recent activities`);
         return r;
       }),
-      fetchTopContributedRepo(graphql, config.username).then((r) => {
+      fetchTopContributedRepo(graphql, config.username, { excludeSelfRepo: true }).then((r) => {
         if (r) {
           console.log(`  ✓ Fetched top contributed repo: ${r.fullTitle} (${r.contributionCount} contribs)`);
         } else {
@@ -94,6 +95,10 @@ async function main(): Promise<void> {
   console.log(`  ✓ Detected ${techBreakdown.totalTechnologies} technologies across categories`);
 
   const repositoryStats = repoResult.stats;
+  createValidatedKPI('totalRepos', repositoryStats.totalRepos, 'GitHub GraphQL user.repositories.totalCount', validateNumber);
+  createValidatedKPI('totalStars', repositoryStats.totalStars, 'GitHub GraphQL stargazerCount sum', validateNumber);
+  createValidatedKPI('totalForks', repositoryStats.totalForks, 'GitHub GraphQL forkCount sum', validateNumber);
+
   const languageStats = computeLanguageStats(repoResult.repositories);
   console.log(`  ✓ Computed language breakdown (${languageStats.languages.length} languages)`);
 
@@ -108,6 +113,7 @@ async function main(): Promise<void> {
     totalForks: repositoryStats.totalForks,
     totalContributions: contributionStats.lifetimeContributions,
     currentStreak: streakStats.currentStreak,
+    longestStreak: streakStats.longestStreak,
   };
 
   const trends = computeTrends(previousSnapshot, currentKpis, techBreakdown);
@@ -140,7 +146,17 @@ async function main(): Promise<void> {
   );
 
   const elapsed = ((Date.now() - startMs) / 1000).toFixed(2);
-  console.log(`\n✅ Done in ${elapsed}s — ${svgCards.length} SVG cards generated.\n`);
+  console.log(`\n============================================================`);
+  console.log(`📊 GENERATION SUMMARY REPORT`);
+  console.log(`   Repositories Discovered: ${discoveredRepos.length}`);
+  console.log(`   Public Repos Scanned:    ${Object.keys(fingerprints).length}`);
+  console.log(`   Lifetime Contributions:  ${contributionStats.lifetimeContributions}`);
+  console.log(`   Current Streak:          ${streakStats.currentStreak} days`);
+  console.log(`   Longest Streak:          ${streakStats.longestStreak} days`);
+  console.log(`   Technologies Detected:   ${techBreakdown.totalTechnologies}`);
+  console.log(`   Generated Assets:        ${svgCards.length} SVG cards in ${config.outputDir}/`);
+  console.log(`============================================================`);
+  console.log(`\n✅ Done in ${elapsed}s.\n`);
 }
 
 main().catch((err: unknown) => {

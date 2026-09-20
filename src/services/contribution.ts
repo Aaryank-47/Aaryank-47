@@ -1,6 +1,7 @@
 import type { GitHubGraphQLClient } from '../api/graphql.js';
 import type { ContributionsCollection, ContributionDay } from '../interfaces/github.js';
 import type { ContributionStats, StreakStats } from '../interfaces/stats.js';
+import { createValidatedKPI, validateNumber } from './kpi.js';
 
 // ─── GraphQL Queries ──────────────────────────────────────────────────────────
 
@@ -48,16 +49,21 @@ function toDateStr(date: Date): string {
   return date.toISOString().split('T')[0] ?? '';
 }
 
+function parseUTCDate(dateStr: string): Date {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  return new Date(Date.UTC(y ?? 2026, (m ?? 1) - 1, d ?? 1));
+}
+
 function addDays(date: Date, n: number): Date {
-  const d = new Date(date);
-  d.setDate(d.getDate() + n);
+  const d = new Date(date.getTime());
+  d.setUTCDate(d.getUTCDate() + n);
   return d;
 }
 
 function isOneDayApart(earlier: string, later: string): boolean {
-  return (
-    new Date(later).getTime() - new Date(earlier).getTime() === 86_400_000
-  );
+  const d1 = parseUTCDate(earlier);
+  const d2 = parseUTCDate(later);
+  return Math.round((d2.getTime() - d1.getTime()) / 86_400_000) === 1;
 }
 
 function flattenDays(collection: ContributionsCollection): ContributionDay[] {
@@ -79,28 +85,30 @@ function computeStreak(allDays: ContributionDay[]): StreakStats {
     };
   }
 
-  // Build O(1) lookup map
+  // Build O(1) lookup map and sort dates
   const dayMap = new Map<string, number>();
   for (const d of allDays) {
     dayMap.set(d.date, d.contributionCount);
   }
 
-  const todayStr = toDateStr(new Date());
-  const yesterdayStr = toDateStr(addDays(new Date(), -1));
-  const todayCount = dayMap.get(todayStr) ?? 0;
+  const sortedDates = [...dayMap.keys()].sort(); // ascending
+  const latestDateStr = sortedDates[sortedDates.length - 1] ?? toDateStr(new Date());
+  const latestCount = dayMap.get(latestDateStr) ?? 0;
 
-  // Determine streak anchor (today if contributed, else yesterday)
-  const anchor = todayCount > 0 ? todayStr : yesterdayStr;
-  const anchorCount = dayMap.get(anchor) ?? 0;
+  const yesterdayDateStr = toDateStr(addDays(parseUTCDate(latestDateStr), -1));
+  const yesterdayCount = dayMap.get(yesterdayDateStr) ?? 0;
+
+  // Determine streak anchor (latest day if contributed, else yesterday)
+  const anchorStr = latestCount > 0 ? latestDateStr : yesterdayCount > 0 ? yesterdayDateStr : null;
 
   // ── Current streak ───────────────────────────────────────────────────────
   let currentStreak = 0;
   let currentStreakStart: string | null = null;
   let currentStreakEnd: string | null = null;
 
-  if (anchorCount > 0) {
-    let checkDate = new Date(anchor);
-    for (let i = 0; i < 400; i++) { // guard against infinite loop
+  if (anchorStr) {
+    let checkDate = parseUTCDate(anchorStr);
+    for (let i = 0; i < 1000; i++) {
       const checkStr = toDateStr(checkDate);
       const count = dayMap.get(checkStr) ?? 0;
       if (count === 0) break;
@@ -113,8 +121,6 @@ function computeStreak(allDays: ContributionDay[]): StreakStats {
   }
 
   // ── Longest streak ───────────────────────────────────────────────────────
-  const sortedDates = [...dayMap.keys()].sort(); // ascending
-
   let longestStreak = 0;
   let longestStreakStart: string | null = null;
   let longestStreakEnd: string | null = null;
@@ -149,7 +155,7 @@ function computeStreak(allDays: ContributionDay[]): StreakStats {
   return {
     currentStreak,
     longestStreak,
-    todayContributions: todayCount,
+    todayContributions: latestCount,
     currentStreakStart,
     currentStreakEnd,
     longestStreakStart,
@@ -163,15 +169,11 @@ export async function fetchContributionStats(
   graphql: GitHubGraphQLClient,
   username: string
 ): Promise<{ contribution: ContributionStats; streak: StreakStats }> {
-  // Resolve account age
+  // Resolve account creation year
   const ageResult = await graphql.query<AccountAgeResult>(CREATED_AT_QUERY, { username });
   const accountCreatedAt = new Date(ageResult.user.createdAt);
   const startYear = accountCreatedAt.getFullYear();
   const currentYear = new Date().getFullYear();
-
-  // Query at most 5 years to stay well within rate limits
-  const yearsToQuery = Math.min(currentYear - startYear + 1, 5);
-  const firstQueryYear = currentYear - yearsToQuery + 1;
 
   let lifetimeContributions = 0;
   let currentYearContributions = 0;
@@ -181,39 +183,56 @@ export async function fetchContributionStats(
   let totalReviews = 0;
   const streakDays: ContributionDay[] = [];
 
-  for (let year = firstQueryYear; year <= currentYear; year++) {
+  // Query all account years from startYear to currentYear for complete accuracy
+  for (let year = startYear; year <= currentYear; year++) {
     const from = new Date(year, 0, 1).toISOString();
     const to =
       year === currentYear
         ? new Date().toISOString()
         : new Date(year, 11, 31, 23, 59, 59).toISOString();
 
-    const result = await graphql.query<ContributionsResult>(CONTRIBUTIONS_QUERY, {
-      username,
-      from,
-      to,
-    });
+    try {
+      const result = await graphql.query<ContributionsResult>(CONTRIBUTIONS_QUERY, {
+        username,
+        from,
+        to,
+      });
 
-    const col = result.user.contributionsCollection;
-    const yearTotal = col.contributionCalendar.totalContributions;
-    lifetimeContributions += yearTotal;
+      const col = result?.user?.contributionsCollection;
+      if (!col) continue;
 
-    if (year === currentYear) {
-      currentYearContributions = yearTotal;
-      totalCommits = col.totalCommitContributions;
-      totalPRs = col.totalPullRequestContributions;
-      totalIssues = col.totalIssueContributions;
-      totalReviews = col.totalPullRequestReviewContributions;
-      streakDays.push(...flattenDays(col));
-    }
+      const yearTotal = col.contributionCalendar?.totalContributions ?? 0;
+      lifetimeContributions += yearTotal;
+      totalCommits += col.totalCommitContributions ?? 0;
+      totalPRs += col.totalPullRequestContributions ?? 0;
+      totalIssues += col.totalIssueContributions ?? 0;
+      totalReviews += col.totalPullRequestReviewContributions ?? 0;
 
-    // Carry over ALL days of the previous year for cross-year streak detection
-    if (year === currentYear - 1) {
-      streakDays.push(...flattenDays(col));
+      const days = flattenDays(col);
+      streakDays.push(...days);
+
+      if (year === currentYear) {
+        currentYearContributions = yearTotal;
+      }
+    } catch (err) {
+      console.warn(`  [Contribution] Warning: Failed fetching contributions for year ${year}:`, err);
     }
   }
 
-  const streak = computeStreak(streakDays);
+  // Deduplicate contribution days by date
+  const uniqueDayMap = new Map<string, ContributionDay>();
+  for (const day of streakDays) {
+    uniqueDayMap.set(day.date, day);
+  }
+  const allUniqueDays = Array.from(uniqueDayMap.values());
+
+  const streak = computeStreak(allUniqueDays);
+
+  // Validate KPIs via Validation Layer
+  createValidatedKPI('lifetimeContributions', lifetimeContributions, 'GitHub GraphQL contributionsCollection', validateNumber);
+  createValidatedKPI('currentYearContributions', currentYearContributions, 'GitHub GraphQL contributionsCollection', validateNumber);
+  createValidatedKPI('currentStreak', streak.currentStreak, 'GitHub GraphQL contributionCalendar', validateNumber);
+  createValidatedKPI('longestStreak', streak.longestStreak, 'GitHub GraphQL contributionCalendar', validateNumber);
 
   return {
     contribution: {
