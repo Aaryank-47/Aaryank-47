@@ -48,20 +48,20 @@
       <rect x="25" y="66" width="430" height="89" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
 
       <!-- Repo Title -->
-      <text x="39" y="90" font-size="14" font-weight="700" fill="#58a6ff" text-anchor="start" opacity="1">Aaryank-47/Aaryank-47</text>
+      <text x="39" y="90" font-size="14" font-weight="700" fill="#58a6ff" text-anchor="start" opacity="1">Aaryank-47/TalentForgeAI_Back…</text>
 
       <!-- Contribution Count Badge -->
       <rect x="320" y="76" width="121" height="22" rx="11" fill="#39d353" opacity="0.15"/>
-      <text x="380" y="91" font-size="10" font-weight="700" fill="#39d353" text-anchor="middle" opacity="1">⚡ 120 contribs</text>
+      <text x="380" y="91" font-size="10" font-weight="700" fill="#39d353" text-anchor="middle" opacity="1">⚡ 274 contribs</text>
 
       <!-- Description -->
-      <text x="39" y="112" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">GitHub Profile Stats Generator</text>
+      <text x="39" y="112" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">AI-powered recruitment platform backend for jobs, candida…</text>
 
       <!-- Meta Info -->
       <circle cx="39" cy="138" r="4" fill="#3178c6"/>
       <text x="49" y="141" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">TypeScript</text>
-      <text x="123" y="141" font-size="11" font-weight="normal" fill="#d29922" text-anchor="start" opacity="1">★ 15</text>
-      <text x="165" y="141" font-size="11" font-weight="normal" fill="#6e7681" text-anchor="start" opacity="1">⑂ 3</text>
-      <text x="441" y="141" font-size="11" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">just now</text>
+      
+      
+      <text x="441" y="141" font-size="11" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">4d ago</text>
     </g>
 </svg>
