@@ -52,7 +52,7 @@
 
       <!-- Contribution Count Badge -->
       <rect x="320" y="76" width="121" height="22" rx="11" fill="#39d353" opacity="0.15"/>
-      <text x="380" y="91" font-size="10" font-weight="700" fill="#39d353" text-anchor="middle" opacity="1">⚡ 274 contribs</text>
+      <text x="380" y="91" font-size="10" font-weight="700" fill="#39d353" text-anchor="middle" opacity="1">⚡ 277 contribs</text>
 
       <!-- Description -->
       <text x="39" y="112" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">AI-powered recruitment platform backend for jobs, candida…</text>
@@ -62,6 +62,6 @@
       <text x="49" y="141" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="start" opacity="1">TypeScript</text>
       
       
-      <text x="441" y="141" font-size="11" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">7d ago</text>
+      <text x="441" y="141" font-size="11" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">14h ago</text>
     </g>
 </svg>

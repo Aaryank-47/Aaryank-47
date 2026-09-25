@@ -62,7 +62,7 @@
     <text x="139" y="85" font-size="9" font-weight="700" fill="#d29922" text-anchor="middle" opacity="1">A</text>
 
     <!-- Value & Rank label -->
-    <text x="59" y="117" font-size="11" font-weight="700" fill="#8b949e" text-anchor="start" opacity="1">858</text>
+    <text x="59" y="117" font-size="11" font-weight="700" fill="#8b949e" text-anchor="start" opacity="1">860</text>
     <text x="153" y="117" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">Gold</text>
   </g>
 <g>
@@ -84,7 +84,7 @@
     <text x="286" y="85" font-size="9" font-weight="700" fill="#d29922" text-anchor="middle" opacity="1">A</text>
 
     <!-- Value & Rank label -->
-    <text x="206" y="117" font-size="11" font-weight="700" fill="#8b949e" text-anchor="start" opacity="1">941</text>
+    <text x="206" y="117" font-size="11" font-weight="700" fill="#8b949e" text-anchor="start" opacity="1">944</text>
     <text x="300" y="117" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">Gold</text>
   </g>
 <g>
@@ -150,7 +150,7 @@
     <text x="286" y="157" font-size="9" font-weight="700" fill="#79c0ff" text-anchor="middle" opacity="1">B</text>
 
     <!-- Value & Rank label -->
-    <text x="206" y="189" font-size="11" font-weight="700" fill="#8b949e" text-anchor="start" opacity="1">16</text>
+    <text x="206" y="189" font-size="11" font-weight="700" fill="#8b949e" text-anchor="start" opacity="1">17</text>
     <text x="300" y="189" font-size="9" font-weight="normal" fill="#6e7681" text-anchor="end" opacity="1">Silver</text>
   </g>
 <g>
