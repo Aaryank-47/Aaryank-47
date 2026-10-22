@@ -57,7 +57,7 @@
     </g>
 <g>
     <text x="383.33333333333337" y="82" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="middle" opacity="1">Today</text>
-    <text x="383.33333333333337" y="120" font-size="32" font-weight="700" fill="#3fb950" text-anchor="middle" opacity="1">2</text>
+    <text x="383.33333333333337" y="120" font-size="32" font-weight="700" fill="#3fb950" text-anchor="middle" opacity="1">0</text>
     <text x="383.33333333333337" y="140" font-size="11" font-weight="normal" fill="#8b949e" text-anchor="middle" opacity="1">contributions</text>
   </g>
 <line x1="168.33333333333334" y1="62" x2="168.33333333333334" y2="176" stroke="#30363d" stroke-width="1" opacity="0.6"/>
